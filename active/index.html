@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activate</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            let countdownTime = 300; // 5 minutes in seconds (300s)
+
+            const updateCountdown = () => {
+                const days = Math.floor(countdownTime / (24 * 60 * 60));
+                const hours = Math.floor((countdownTime % (24 * 60 * 60)) / (60 * 60));
+                const minutes = Math.floor((countdownTime % (60 * 60)) / 60);
+                const seconds = countdownTime % 60;
+
+                document.getElementById('days').innerText = days;
+                document.getElementById('hours').innerText = hours.toString().padStart(2, '0');
+                document.getElementById('minutes').innerText = minutes.toString().padStart(2, '0');
+                document.getElementById('seconds').innerText = seconds.toString().padStart(2, '0');
+
+                if (countdownTime > 0) {
+                    countdownTime--;
+                } else {
+                    clearInterval(timer); // Dừng đếm ngược khi kết thúc
+                    document.getElementById('countdown-container').style.display = 'none'; // Ẩn bộ đếm thời gian
+                    document.getElementById('alert-message').style.display = 'flex'; // Hiện thông báo
+                }
+            };
+
+            // Ẩn alert-message khi trang vừa load
+            document.getElementById('alert-message').style.display = 'none';
+
+            let timer = setInterval(updateCountdown, 1000);
+            updateCountdown(); // Gọi lần đầu để cập nhật ngay lập tức
+        });
+    </script>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen bg-cover bg-center" 
+      style="background-image: url('https://i.pinimg.com/736x/34/84/52/3484528fb79435d441d90b46c7794cf1.jpg');">
+    
+    <!-- Đếm ngược -->
+    <div id="countdown-container" class="text-center text-white">
+        <h1 class="text-2xl md:text-4xl font-bold mb-4">HỆ THỐNG ĐANG TRUYỀN TẢI DỮ LIỆU VUI LÒNG CHỜ TRONG ÍT PHÚT:</h1>
+        <div class="flex justify-center space-x-2 md:space-x-4">
+            <div class="bg-teal-600 p-4 rounded-lg">
+                <div id="days" class="text-2xl md:text-4xl font-bold">0</div>
+                <div class="text-sm md:text-lg">Ngày</div>
+            </div>
+            <div class="bg-teal-600 p-4 rounded-lg">
+                <div id="hours" class="text-2xl md:text-4xl font-bold">00</div>
+                <div class="text-sm md:text-lg">Giờ</div>
+            </div>
+            <div class="bg-teal-600 p-4 rounded-lg">
+                <div id="minutes" class="text-2xl md:text-4xl font-bold">05</div>
+                <div class="text-sm md:text-lg">Phút</div>
+            </div>
+            <div class="bg-teal-600 p-4 rounded-lg">
+                <div id="seconds" class="text-2xl md:text-4xl font-bold">00</div>
+                <div class="text-sm md:text-lg">Giây</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Thông báo khi hết 5 phút -->
+    <div id="alert-message" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+      <div class="bg-white rounded-lg shadow-lg p-6 max-w-sm text-center">
+        <img src="https://i.pinimg.com/736x/b5/57/db/b557dbb0d6bc566a1677165c2b0d9233.jpg" alt="Tick xanh" class="w-32 h-32 mx-auto mb-4">
+        <h2 class="text-2xl font-bold mb-2" style="color: Green;">ĐÃ XÂM NHẬP</h2>
+        <p class="text-lg mb-4">Bạn đã kích hoạt thành công<br>Vui lòng liên hệ phòng kỹ thuật để cam kết và chuyển vùng dữ liệu.</p>
+        <button class="mt-2 px-4 py-2 bg-gray-200 rounded" onclick="document.getElementById('alert-message').style.display='none'">Đóng</button>
+      </div>
+    </div>
+
+</body>
+</html>

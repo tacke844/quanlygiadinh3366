@@ -1,0 +1,28 @@
+/* Make the background image fill the screen */
+body {
+  background-image: url('https://i.pinimg.com/736x/79/4f/8c/794f8ce84c30fd3fa5c460c0f233a9b1.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+/* "Fancy" frame for headings */
+.fancy-frame {
+  display: inline-block;
+  position: relative;
+  padding: 0.5rem 1rem;
+  border: 4px double #2dd393; /* Double border style */
+  border-radius: 0.5rem;      /* Slightly rounded corners */
+  background: #2dd393;       /* Semi-transparent background */
+  color: #f5f3f3;
+  font-weight: bold;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  text-transform: uppercase;
+}
+
+/* Loading text and progress bar styling */
+.loading-text {
+  display: none;
+  font-size: 1rem;
+  color: #4caf50;
+  font-weight: bold;
+}

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Đăng Ký Gói VIP</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Tailwind CSS from CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="flex items-center justify-center min-h-screen text-white">
+  <div class="text-center">
+    <h1 class="text-2xl font-bold mb-6">ĐĂNG KÝ GÓI GÓI THUÊ BAO CẬP NHẬP DỮ LIỆU</h1>
+
+    <div class="space-y-4">
+
+      <!-- 1-Year Plan -->
+      <div class="bg-white rounded-lg shadow-lg p-4">
+        <h2 class="fancy-frame mb-2">MUA GÓI THUÊ BAO 1 NĂM</h2>
+        <button
+          class="bg-purple-500 text-white font-bold py-2 px-4 rounded transition-colors duration-300 ease-in-out hover:bg-purple-700"
+          onclick="toggleCodeInput(this)"
+        >
+          Đăng Ký Ngay
+        </button>
+        <div class="hidden mt-2">
+          <input
+            type="password"
+            placeholder="Nhập mã"
+            class="border border-gray-300 rounded py-2 px-4 mb-2 text-black"
+          />
+          <button
+            class="bg-green-500 text-white font-bold py-2 px-4 rounded transition-colors duration-300 ease-in-out hover:bg-green-700"
+            onclick="activateCode(this)"
+          >
+            Kích Hoạt
+          </button>
+          <div id="progressContainer" class="hidden mt-4 w-full bg-gray-300 rounded">
+            <div id="progressBar" class="bg-green-500 h-4 rounded" style="width: 0%"></div>
+          </div>
+          <div id="loadingText" class="loading-text mt-2">
+            Loading: <span id="loadingPercentage">0%</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2-Year Plan -->
+      <div class="bg-white rounded-lg shadow-lg p-4">
+        <h2 class="fancy-frame mb-2">MUA GÓI THUÊ BAO 2 NĂM</h2>
+        <button
+          class="bg-purple-500 text-white font-bold py-2 px-4 rounded transition-colors duration-300 ease-in-out hover:bg-purple-700"
+          onclick="toggleCodeInput(this)"
+        >
+          Đăng Ký Ngay
+        </button>
+        <div class="hidden mt-2">
+          <input
+            type="password"
+            placeholder="Nhập mã"
+            class="border border-gray-300 rounded py-2 px-4 mb-2 text-black"
+          />
+          <button
+            class="bg-green-500 text-white font-bold py-2 px-4 rounded transition-colors duration-300 ease-in-out hover:bg-green-700"
+            onclick="activateCode(this)"
+          >
+            Kích Hoạt
+          </button>
+          <div id="progressContainer" class="hidden mt-4 w-full bg-gray-300 rounded">
+            <div id="progressBar" class="bg-green-500 h-4 rounded" style="width: 0%"></div>
+          </div>
+          <div id="loadingText" class="loading-text mt-2">
+            Loading: <span id="loadingPercentage">0%</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5-Year Plan -->
+      <div class="bg-white rounded-lg shadow-lg p-4">
+        <h2 class="fancy-frame mb-2">MUA GÓI THUÊ BAO 5 NĂM</h2>
+        <button
+          class="bg-purple-500 text-white font-bold py-2 px-4 rounded transition-colors duration-300 ease-in-out hover:bg-purple-700"
+          onclick="toggleCodeInput(this)"
+        >
+          Đăng Ký Ngay
+        </button>
+        <div class="hidden mt-2">
+          <input
+            type="password"
+            placeholder="Nhập mã"
+            class="border border-gray-300 rounded py-2 px-4 mb-2 text-black"
+          />
+          <button
+            class="bg-green-500 text-white font-bold py-2 px-4 rounded transition-colors duration-300 ease-in-out hover:bg-green-700"
+            onclick="activateCode(this)"
+          >
+            Kích Hoạt
+          </button>
+          <div id="progressContainer" class="hidden mt-4 w-full bg-gray-300 rounded">
+            <div id="progressBar" class="bg-green-500 h-4 rounded" style="width: 0%"></div>
+          </div>
+          <div id="loadingText" class="loading-text mt-2">
+            Loading: <span id="loadingPercentage">0%</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lifetime Plan -->
+      <div class="bg-white rounded-lg shadow-lg p-4">
+        <h2 class="fancy-frame mb-2">MUA GÓI THUÊ BAO VĨNH VIỄN</h2>
+        <button
+          class="bg-purple-500 text-white font-bold py-2 px-4 rounded transition-colors duration-300 ease-in-out hover:bg-purple-700"
+          onclick="toggleCodeInput(this)"
+        >
+          Đăng Ký Ngay
+        </button>
+        <div class="hidden mt-2">
+          <input
+            type="password"
+            placeholder="Nhập mã"
+            class="border border-gray-300 rounded py-2 px-4 mb-2 text-black"
+          />
+          <button
+            class="bg-green-500 text-white font-bold py-2 px-4 rounded transition-colors duration-300 ease-in-out hover:bg-green-700"
+            onclick="activateCode(this)"
+          >
+            Kích Hoạt
+          </button>
+          <div id="progressContainer" class="hidden mt-4 w-full bg-gray-300 rounded">
+            <div id="progressBar" class="bg-green-500 h-4 rounded" style="width: 0%"></div>
+          </div>
+          <div id="loadingText" class="loading-text mt-2">
+            Loading: <span id="loadingPercentage">0%</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Custom JS -->
+  <script src="base.js"></script>
+</body>
+</html>
