@@ -215,7 +215,7 @@ function showLoadingAndRedirect() {
 
       if (percent >= 100) {
           clearInterval(interval);
-          window.location.href = "/goivip";
+          window.location.href = "../goivip/";
       }
   }, intervalTime);
 }

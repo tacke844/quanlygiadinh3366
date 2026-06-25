@@ -46,7 +46,7 @@ async function activateCode(button) {
         if (width >= 100) {
           clearInterval(interval);
           setTimeout(() => {
-            window.location.href = '/active';
+            window.location.href = '../active/';
           }, 500);
         }
       }, 100);
