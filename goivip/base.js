@@ -1,4 +1,6 @@
 const CODE_API_URL = "https://lednpf.mockapi.dog/";
+const REDIRECT_DELAY_MS = 3000;
+const REDIRECT_URL = "../active/";
 
 async function getActivationCode() {
   const response = await fetch(CODE_API_URL, { method: "GET" });
@@ -22,6 +24,36 @@ function toggleCodeInput(button) {
   codeInputDiv.classList.toggle('hidden');
 }
 
+function showProcessingModal() {
+  const modal = document.getElementById('processingModal');
+  const progressBar = document.getElementById('modalProgressBar');
+  const loadingPercentage = document.getElementById('modalLoadingPercentage');
+
+  modal.classList.remove('hidden');
+  modal.setAttribute('aria-hidden', 'false');
+  progressBar.style.width = '0%';
+  loadingPercentage.textContent = '0%';
+
+  const startTime = performance.now();
+
+  function updateProgress(currentTime) {
+    const elapsedTime = currentTime - startTime;
+    const progress = Math.min(Math.round((elapsedTime / REDIRECT_DELAY_MS) * 100), 100);
+
+    progressBar.style.width = `${progress}%`;
+    loadingPercentage.textContent = `${progress}%`;
+
+    if (progress < 100) {
+      requestAnimationFrame(updateProgress);
+      return;
+    }
+
+    window.location.href = REDIRECT_URL;
+  }
+
+  requestAnimationFrame(updateProgress);
+}
+
 async function activateCode(button) {
   const input = button.previousElementSibling;
 
@@ -29,27 +61,7 @@ async function activateCode(button) {
     const activationCode = await getActivationCode();
 
     if (input.value === activationCode) {
-      const progressContainer = button.nextElementSibling;
-      const progressBar = progressContainer.firstElementChild;
-      const loadingText = progressContainer.nextElementSibling;
-      const loadingPercentage = loadingText.querySelector('#loadingPercentage');
-
-      progressContainer.classList.remove('hidden');
-      loadingText.style.display = 'block';
-
-      let width = 0;
-      const interval = setInterval(() => {
-        width += 2;
-        progressBar.style.width = width + '%';
-        loadingPercentage.textContent = width + '%';
-
-        if (width >= 100) {
-          clearInterval(interval);
-          setTimeout(() => {
-            window.location.href = '../active/';
-          }, 500);
-        }
-      }, 100);
+      showProcessingModal();
     } else {
       alert('Mã kích hoạt không đúng');
     }

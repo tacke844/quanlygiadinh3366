@@ -26,3 +26,9 @@ body {
   color: #4caf50;
   font-weight: bold;
 }
+
+#processingModal {
+  background-image: url('https://i.pinimg.com/736x/79/4f/8c/794f8ce84c30fd3fa5c460c0f233a9b1.jpg');
+  background-size: cover;
+  background-position: center;
+}
