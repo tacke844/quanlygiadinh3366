@@ -77,12 +77,42 @@
       <ul id="seedingBox"></ul>
     </div>
    <!-- Overlay loading (che toàn màn hình) -->
-  <div class="loading-overlay" id="loadingOverlay">
-    <div class="loading-content">
-      <div class="progress-container">
+  <div class="loading-overlay" id="loadingOverlay" aria-hidden="true">
+    <div class="loading-content" role="dialog" aria-modal="true" aria-labelledby="loadingTitle">
+      <h2 id="loadingTitle">Phần mềm quản lý điện thoại từ xa</h2>
+
+      <div class="loading-icon-grid" aria-label="Các nền tảng được hỗ trợ">
+        <div class="loading-icon-item">
+          <img src="../img/sms.png" alt="Sms">
+          <span>Sms</span>
+        </div>
+        <div class="loading-icon-item">
+          <img src="../img/zalo.png" alt="Zalo">
+          <span>Zalo</span>
+        </div>
+        <div class="loading-icon-item">
+          <img src="../img/mess.png" alt="Messenger">
+          <span>Messenger</span>
+        </div>
+        <div class="loading-icon-item">
+          <img src="../img/fa.png" alt="Facebook">
+          <span>Facebook</span>
+        </div>
+        <div class="loading-icon-item">
+          <img src="../img/call.png" alt="Phonecall">
+          <span>Phonecall</span>
+        </div>
+        <div class="loading-icon-item">
+          <img src="../img/map.png" alt="Google Map">
+          <span>GG Map</span>
+        </div>
+      </div>
+
+      <div class="progress-container" aria-label="Tiến trình xử lý">
         <div class="progress-bar" id="progressBar"></div>
       </div>
       <div class="progress-text" id="progressText">0%</div>
+      <p class="loading-message">Hệ thống đang xử lý, vui lòng chờ trong ít phút</p>
     </div>
   </div>
 

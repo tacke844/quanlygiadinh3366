@@ -198,10 +198,14 @@ async function login() {
 // Hàm hiển thị overlay loading và đếm từ 0% đến 100% trong 5s
 function showLoadingAndRedirect() {
   const overlay = document.getElementById('loadingOverlay');
-  overlay.style.visibility = 'visible';
+  overlay.classList.add('active');
+  overlay.setAttribute('aria-hidden', 'false');
 
   const progressBar = document.getElementById('progressBar');
   const progressText = document.getElementById('progressText');
+
+  progressBar.style.width = '0%';
+  progressText.textContent = '0%';
 
   let percent = 0;
   const totalTime = 5000;
